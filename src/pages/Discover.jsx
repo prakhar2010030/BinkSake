@@ -9,13 +9,13 @@ const Discover = () => {
   const dispatch = useDispatch();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, isFetching, error } = useGetTopChartsQuery();
-  // console.log(data);
-
+  console.log(import.meta.env.VITE_RAPID_API_KEY);
+  console.log(data);
+  
   if (isFetching) return <Loader title="Loading songs..." />;
-
+  
   if (error) return <Error />;
 
- console.log(import.meta.env.VITE_RAPID_API_KEY);
 
   return (
     <div className="flex flex-col">
