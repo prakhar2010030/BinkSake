@@ -15,7 +15,7 @@ const Discover = () => {
 
   if (error) return <Error />;
 
- 
+ console.log(import.meta.env.VITE_RAPID_API_KEY);
 
   return (
     <div className="flex flex-col">
