@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'; // utility function from redux toolkit for api call
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"; // utility function from redux toolkit for api call
 
 // const options = {
 //   method: "GET",
@@ -16,24 +16,22 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'; // uti
 // ****API CALL IN REDUX TOOLKIT**** //
 
 export const shazamCoreApi = createApi({
-  reducerPath: 'shazamCoreApi',
+  reducerPath: "shazamCoreApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://shazam-core.p.rapidapi.com/v1',
+    baseUrl: "https://shazam-core.p.rapidapi.com/v1",
     prepareHeaders: (headers) => {
       headers.set(
-        'X-RapidAPI-Key',
-        `${import.meta.env.VITE_RAPID_API_KEY}`,
+        "X-RapidAPI-Key", `${import.meta.env.VITE_RAPID_API_KEY}`,
+        "X-RapidAPI-Host", `${import.meta.env.VITE_HOST}`,
       );
 
       return headers;
     },
   }),
   endpoints: (builder) => ({
-    getTopCharts: builder.query({ query: () => '/charts/world' }),
+    getTopCharts: builder.query({ query: () => "/charts/world" }),
   }),
 });
 
-export const {
-  useGetTopChartsQuery,
-} = shazamCoreApi;
+export const { useGetTopChartsQuery } = shazamCoreApi;
 //  to use this api end point when call is made .
